@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basketball Simulation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="controls">
+            <label for="video-selection">Select Video:</label>
+            <select id="video-selection" onchange="updateVideo()">
+                <option value="videos/groceries_1.mp4">Put the coffee in the cupboard. </option>
+                <option value="videos/ring_2.mp4">Put the ring in spoke 2. </option>
+                <option value="videos/stack_blocks_1.mp4">Stack 3 blocks together. </option>
+                <option value="videos/wine_1.mp4">Stack the wine block to the left of the rack.</option>
+            </select>
+        </div>
+        <div class="video-container">
+            <video id="video-player" width="600" controls>
+                <source id="video-source" src="videos/groceries_1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
