@@ -1,13 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basketball Simulation</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="utf-8">
+  <meta name="description"
+        content="MALMM: Multi-Agent Large Language Models for Zero-Shot Robotics Manipulation">
+  <meta name="keywords" content="Robotic Manipulation, Language Models">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MALMM</title>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FV4ZJ9PVSV"></script>  
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FV4ZJ9PVSV');
+  </script>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
 </head>
 <body>
-    <div class="container">
+
+<section class="hero">
+<div class="hero-body">
+    <div class="container is-fullhd">
+    <div class="columns is-centered">
+        <div class="column has-text-centered">
+        <h1 class="title is-1 publication-title">MALMM: Multi-Agent Large Language Models for Zero-Shot Robotics Manipulation</h1>
+        <!-- <h3 class="title is-4 conference-authors"><a target="_blank" href="https://www.corl2023.org/">CoRL 2023 (Oral)</a></h3> -->
+        <div class="is-size-5 publication-authors">
+            <span class="author-block">
+            <a target="_blank" href="https://scholar.google.com/citations?hl=en&user=DayMIBIAAAAJ">Harsh Singh*</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+            <a target="_blank" href="https://rocktimjyotidas.github.io/">Rocktim Jyoti Das*</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+            <a target="_blank" href="https://mingfei.info/">Mingfei Han</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+            <a target="_blank" href="https://mbzuai.ac.ae/study/faculty/preslav-nakov/">Preslav Nakov</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+            <a target="_blank" href="https://www.di.ens.fr/~laptev/">Ivan Laptev</a><sup>1</sup>,
+            </span>
+        </div>
+
+        <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Mohamed bin Zayed University of Artificial Intelligence, Abu Dhabi</span>
+        </div>
+
+        <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a target="_blank" href="https://github.com/malmm1/prompts"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file"></i>
+                  </span>
+                  <span>Prompts</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a target="_blank" href="https://github.com/malmm1/MALMM.git"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (coming soon)</span>
+                  </a>
+              </span>
+        </div>
+
+    </div>
+    </div>
+</div>
+</section>
+
+<section class="hero teaser">
+    <div class="container is-fullhd">
+      <div class="hero-body">
+        <div class="container">
+          <div class="columns is-vcentered  is-centered">
+            <video id="teaser" autoplay muted loop width="80%" style="height: auto;">
+              <source src="media/videos/Teaser.mp4"
+                      type="video/mp4">
+            </video>
+            <!-- </br> -->
+          </div>
+          <!-- <br> -->
+          <h2 class="subtitle has-text-centered">
+          <!-- <span class="dperact">MALMM</span> utilizes <b>collaborative intelligence </b> of multiple Large Language Model based Agents<br>to solve complex manipulation tasks<b> in zero-shot manner</b>. -->
+          </h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+                Large Language Models (LLMs) have demonstrated remarkable planning abilities across various domains, including robotics manipulation and navigation. While recent efforts in robotics have leveraged LLMs both for high-level and low-level planning, these approaches often face significant challenges, such as hallucinations in long-horizon tasks and limited adaptability due to the generation of plans in a single pass without real-time feedback. To address these limitations, we propose a novel multi-agent LLM framework, <i>Multi-Agent Large Language Model for Manipulation (MALMM)</i> that distributes high-level planning and low-level control code generation across specialized LLM agents, supervised by an additional agent that dynamically manages transitions. By incorporating observations from the environment after each step, our framework effectively handles intermediate failures and enables adaptive re-planning. Unlike existing methods, our approach does not rely on pre-trained skill policies or in-context learning examples and generalizes to a variety of tasks. We evaluate our approach on nine RLBench tasks, including long-horizon tasks, and demonstrate its ability to solve  robotics manipulation tasks in a zero-shot setting, thereby overcoming key limitations of existing LLM-based manipulation methods.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+  
+    </div>
+  
+    <!-- Paper video. -->
+  
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-widescreen">
+  
+      <div class="rows">
+  
+  
+      <!-- Animation. -->
+      <div class="rows is-centered ">
+        <div class="row is-full-width">
+          <h2 class="title is-3"><span class="dperact">MALMM</span></h2>
+  
+          <!-- Interpolating. -->
+          <div class="content has-text-justified">
+          <!-- <br> -->
+          </div>
+          <!-- <img src="media/figures/Pipeline.png" class="interpolation-image" /> -->
+
+          <div class="content has-text-centered">
+            <img src="media/figures/Pipeline.png" class="interpolation-image" style="width: 75%; height: auto;" />
+          </div>
+          </br>
+          </br>
+            <p class="content has-text-justified">
+            An overview of our multi-agent system, <strong> MALMM </strong>, consists of three LLM agents—<strong>Planner</strong>, <strong>Coder</strong>, and <strong>Supervisor</strong>—and a <strong>Code executor</strong> tool. Each agent operates with a specific system prompt defining its role: (1) the <strong>Planner</strong> generates high-level plans and replans in case of intermediate failures, (2) the <strong>Coder</strong> converts these plans into low-level executable code, and (3) the <strong>Supervisor</strong> coordinates the system by managing the transitions between the Planner, Coder, and Code executor.
+           </p>
+        </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-widescreen">
+  
+      <div class="rows">
+  
+  
+      <!-- Animation. -->
+      <div class="rows is-centered ">
+        <div class="row is-full-width">
+          <h2 class="title is-3"><span class="dperact">Results</span></h2>
+  
+          <!-- Interpolating. -->
+          <div class="content has-text-justified">
+          <!-- <br> -->
+          </div>
+          <img src="media/figures/main_result.png" class="interpolation-image" />
+          </br>
+          </br>
+            <p class="content has-text-justified">
+            The Table shows the success rate (%) for zero-shot evaluation on nine tasks RLBench. In the table, we have highlighted the best-performing method for each task in <strong>bold</strong> and the second-best-performing method is <u>underlined</u>. We can observe that MALMM outperforms existing baseline by a significant margin.
+
+           </p>
+
+           <div class="content has-text-centered">
+            <img src="media/figures/Vision_Results.png" class="interpolation-image" style="width: 50%; height: auto;" />
+          </div>
+     
+          <p class="content has-text-justified">
+            In this table, we do a comparison of the performance between Single Agent and  MALMM in the setup with <strong> vision-based environment observations</strong>. We run our evaluation on three tasks from RLBench. From the table, we can observe that for all the task MALMM is better than Single Agent.
+         </p>
+        </div>
+    </div>
+  </section>
+
+
+
+
+
+    <!-- <div class="container">
         <div class="controls">
             <label for="video-selection">Select Video:</label>
             <select id="video-selection" onchange="updateVideo()">
@@ -24,6 +218,6 @@
             </video>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script src="script.js"></script> -->
 </body>
 </html>
