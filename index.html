@@ -129,8 +129,21 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-                Large Language Models (LLMs) have demonstrated remarkable planning abilities across various domains, including robotics manipulation and navigation. While recent efforts in robotics have leveraged LLMs both for high-level and low-level planning, these approaches often face significant challenges, such as hallucinations in long-horizon tasks and limited adaptability due to the generation of plans in a single pass without real-time feedback. To address these limitations, we propose a novel multi-agent LLM framework, <i>Multi-Agent Large Language Model for Manipulation (MALMM)</i> that distributes high-level planning and low-level control code generation across specialized LLM agents, supervised by an additional agent that dynamically manages transitions. By incorporating observations from the environment after each step, our framework effectively handles intermediate failures and enables adaptive re-planning. Unlike existing methods, our approach does not rely on pre-trained skill policies or in-context learning examples and generalizes to a variety of tasks. We evaluate our approach on nine RLBench tasks, including long-horizon tasks, and demonstrate its ability to solve  robotics manipulation tasks in a zero-shot setting, thereby overcoming key limitations of existing LLM-based manipulation methods.
-            </p>
+                Large Language Models (LLMs) have demonstrated remarkable planning abilities across
+various domains, including robotic manipulation and navigation. While recent work in
+robotics deploys LLMs for high-level and low-level planning, existing methods often face
+challenges with failure recovery and suffer from hallucinations in long-horizon tasks. To ad-
+dress these limitations, we propose a novel multi-agent LLM framework, M ulti-Agent Large
+Language M odel for M anipulation (MALMM). Notably, MALMM distributes planning
+across three specialized LLM agents, namely high-level planning agent, low-level control
+agent, and a supervisor agent. Moreover, by incorporating environmental observations af-
+ter each step, our framework effectively handles intermediate failures and enables adaptive
+re-planning. Unlike existing methods, MALMM does not rely on pre-trained skill poli-
+cies or in-context learning examples and generalizes to unseen tasks. In our experiments,
+MALMM demonstrates excellent performance in solving previously unseen long-horizon
+manipulation tasks, and outperforms existing zero-shot LLM-based methods in RLBench
+by a large margin. Experiments with the Franka robot arm further validate our approach
+in real-world settings.  </p>
           </div>
         </div>
       </div>
